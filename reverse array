@@ -1,0 +1,25 @@
+# Reverse the array in groups of consecutive k integers
+
+arr = []
+for index in range(1, 10):
+    element = int(input("Enter element no " + str(index) + ": "))
+    arr.append(element)
+
+print("Original array:", arr)
+
+# Get group size (k) from user
+size = int(input("Enter an integer (group size k): "))
+
+# Extra Change: Handle invalid or zero size
+if size <= 0:
+    print("Invalid group size. Please enter a positive integer.")
+else:
+    index = 0
+    while index < len(arr):
+        end = index + size
+        sub_array = arr[index:end]
+        sub_array.reverse()
+        arr[index:end] = sub_array
+        index += size
+
+    print("Array after reversing in groups of", size, ":", arr)
